@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var purchase = [];
+        var sale = [];
+        var stock = [];
+        var ostock = [];
+        var pid = [];
+        var proname = [];
+        var proprice = [];
+        var sprice = [];
+
+
+        do {
+            var x = parseInt(prompt('Enter Your Choice...\n 1. Purchase \n 2. Sale \n 3. Stock \n 4. Exit'));
+            switch (x) {
+                case 1:
+                    {
+                        pparty = [];
+                        porder = [];
+                        pproduct = [];
+                        do {
+                            var xx = parseInt(prompt('Enter Your Choice...\n 1. Purchase Party\n 2. Purchase Product \n 3.Purchase Order  \n 4. Exit'));
+                            switch (xx) {
+                                case 1:
+                                    {
+                                        var ppname = [];
+                                        var ppnumber = [];
+                                        var ppoblance = [];
+
+                                        var xy = parseInt(prompt('How Many Purchase Party You Want To Store?'));
+                                        for (var i = 0; i < xy; i++) {
+                                            var y;
+                                            do {
+                                                var y = prompt('enter name::');
+                                            }
+                                            while (y.length < 3);
+                                            ppname.push(y);
+
+                                            var num = parseInt(prompt('enter number::'));
+                                            for (var j = 0; j < i; j++) {
+                                                while (num == ppnumber[j]) {
+                                                    num = parseInt(prompt("This number is already exists. \n Enter number::"));
+                                                    j = 0;
+                                                }
+                                            }
+                                            ppnumber.push(num);
+
+                                            var d = parseInt(prompt('Enter opening blance::'));
+                                            ppoblance.push(d);
+
+                                        }
+                                        break;
+                                    }
+                                case 2:
+                                    {
+
+                                        
+                                        var s = 1;
+                                        var a = parseInt(prompt('How Many Purchase Product You Want To Store?'));
+                                        for (k = 0; k < a; k++) {
+                                            pid.push(s++);
+
+                                            var y;
+                                            do {
+                                                var y = prompt('enter name::');
+                                            }
+                                            while (y.length < 3);
+                                            proname.push(y);
+
+                                            var d = parseInt(prompt('Enter Purchase Price ::'));
+                                            proprice.push(d);
+
+                                            var dd = parseInt(prompt('Enter Sale Price ::'));
+                                            sprice.push(dd);
+
+                                            var ddd = parseInt(prompt('Enter Opening Stock ::'));
+                                            ostock.push(ddd);
+                                        }
+                                        break;
+                                    }
+                                case 3:
+                                    {
+                                        var order = 0;
+                                        var xyz = parseInt(prompt('Which Product You Want To order'));
+                                        for (i = 0; i < pid.length; i++) {
+                                            if (xyz == pid[i]) {
+                                                alert('Product Name =>' + proname[i] + '\n' + 'Product Price =>' + sprice[i] + '\n' + 'Stock =>' + ostock[i]);
+                                                var de = parseInt(prompt('Enter Quantity =>'));
+                                                order = proprice[i] * de;
+                                                ostock[i] = ostock[i] + de;
+                                                alert('Your Order is Suceccfully \n Purchase Order is ' + order + '\n After Order Stock' + ostock[i]);
+
+                                            }
+                                        }
+                                    }
+                                default:
+
+                            }
+                        } while (xx != 4);
+                        break;
+                    }
+                case 2:
+                    {
+                        sparty = [];
+                        sorder = [];
+
+                        do {
+                            var xx = parseInt(prompt('Enter Your Choice...\n 1. Sale Party\n 2. Sale Product \n 3.Exit'));
+                            switch (xx) {
+                                case 1:
+                                    {
+                                        var spname = [];
+                                        var spnumber = [];
+                                        var spoblance = [];
+
+                                        var xy = parseInt(prompt('How Many Purchase Party You Want To Store?'));
+                                        for (var i = 0; i < xy; i++) {
+                                            var y;
+                                            do {
+                                                var y = prompt('enter name::');
+                                            }
+                                            while (y.length < 3);
+                                            spname.push(y);
+
+                                            var num = parseInt(prompt('enter number::'));
+                                            for (var j = 0; j < i; j++) {
+                                                while (num == spnumber[j]) {
+                                                    num = parseInt(prompt("This number is already exists. \n Enter number::"));
+                                                    j = 0;
+                                                }
+                                            }
+                                            spnumber.push(num);
+
+                                            var d = parseInt(prompt('Enter opening blance::'));
+                                            spoblance.push(d);
+
+                                        }
+                                        break;
+                                    }
+                                case 2:
+                                    {
+                                        var sale = 0;
+                                        var xyz = parseInt(prompt('Which Product You Want To Sale'));
+                                        for (i = 0; i < pid.length; i++)
+                                            if (xyz == pid[i]) {
+                                                alert('Product Name =>' + proname[i] + '\n' + 'Product Price =>' + sprice[i] + '\n' + 'Stock =>' + ostock[i]);
+                                                var de = parseInt(prompt('Enter Quantity =>'));
+                                                if (ostock[i] >= de) {
+                                                    sale = sprice[i] * de;
+                                                    ostock[i] = ostock[i] - de;
+                                                    alert('Your Order is Suceccfully \n Sale Order is ' + sale + '\n After SAle Stock =>' + ostock[i]);
+                                                }
+                                                else {
+                                                    alert('sorry we have not this quntity');
+                                                }
+                                            }
+                                        break;
+                                    }
+                                default:
+
+                            }
+                        } while (xx != 3);
+                        break;
+                    }
+                case 3:
+                    {
+                        var xyz = parseInt(prompt('Which Product Stock You Want'));
+                        for (i = 0; i < pid.length; i++) {
+                            if (xyz == pid[i]) {
+                                alert('Product Name ==>'+proname[i]+'\n Stock ==>' + ostock[i]);
+                                break;
+                            }
+                        }
+                    }
+                default:
+
+            }
+        } while (x != 4);
+
+    </script>
+</body>
+
+</html>

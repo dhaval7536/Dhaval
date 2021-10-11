@@ -1,0 +1,97 @@
+<script type="text/javascript">
+
+    var a = [];
+    var b = [];
+
+    var x = parseInt(prompt('How Many profile You Want To Store?'));
+
+    for (var k = 0; k < x; k++) {
+        var g = prompt('enter name::');
+        a.push(g);
+
+        var c = parseInt(prompt('For This Name how many number you want to store?'));
+        var t = [];
+        for (var o = 0; o < c; o++) {
+            var p = prompt('enter number::');
+            t.push(p);
+        }
+        b.push(t);
+    }
+
+    document.write('------View operation------<br/>');
+    document.write('Name<br/>');
+    for (var k = 0; k < a.length; k++) {
+        document.write('Name = ' + a[k] + '<br/>');
+        for (var l = 0; l < b[k].length; l++) {
+            document.write(b[k] + '<br/>');
+            break;
+        }
+        document.write('<br/>');
+    }
+
+    var nu = parseInt(prompt('YOu r in search operation.\n which option through you want to search.\n 1.Name \n 2. Number '));
+    document.write('------Search operation------<br/>');
+    if (nu == 1) {
+        var d = prompt('Please Enter Name For Search:');
+        for (var i = 0; i < a.length; i++) {
+            if (d == a[i]) {
+                document.write(a[i] + '\t' + b[i] + '<br/>');
+            }
+        }
+    }
+    else if (nu == 2) {
+        var d = prompt('Please Enter Number For Search:');
+        for (var i = 0; i < b.length; i++) {
+            for (k = 0; k < b[i][k]; k++) {
+                if (d == b[i][k]) {
+                    document.write(a[i] + '\t' + b[i][k] + '<br/>');
+                    break;
+                }
+
+            }
+        }
+    }
+
+
+    var f = confirm('Do you want to go in update operation?');
+    if (f) {
+        document.write('------Update operation------<br/>');
+        var nu = parseInt(prompt('You r in Update operation.\n Enter your number for search profile::'));
+        for (var i = 0; i < a.length; i++) {
+            for (var k = 0; k < b[i].length; k++) {
+                if (nu == b[i][k]) {
+                    document.write('Your Name=' + a[i] + '<br/>');
+                    document.write('Your Number=' + b[i][k] + '<br/>');
+
+                    var op = parseInt(prompt('Now Which column you want to update?\n1.Name\n2.Number\n3.Exit'));
+
+                    if (op == 1) {
+                        var da= prompt('enter new name::');
+                        a[i] = da;
+                    }
+                    else if (op == 2){
+
+                        var q = parseInt(prompt('which number you want update? ==>'));
+                        if (q == b[i][k]){
+                            var eq = prompt('enter new numer ::');
+                            b[i][k] = eq;
+                        }
+                         break;
+                    }
+                }
+
+            }
+        }
+    }
+    
+    document.write('------View operation------<br/>');
+    document.write('Name<br/>');
+    for (var k = 0; k < a.length; k++) {
+        document.write('Name = ' + a[k] + '<br/>');
+        for (var l = 0; l < b[k].length; l++) {
+            document.write(b[k] + '<br/>');
+            break;
+        }
+        document.write('<br/>');
+    }
+</script>

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var profile = [];
+        var product = [];
+        var profile2 = [];
+        do {
+            var x = parseInt(prompt('Enter Your Choice...\n 1. Purchase \n 2. Sale \n 3. Stock \n 4. Exit'));
+            switch (x) {
+                case 1:
+                    {
+                        do {
+                            var xx = parseInt(prompt('Enter Your Choice...\n 1. Purchase Party\n 2. Purchase Product \n 3.Purchase Order  \n 4. Exit'));
+                            switch (xx) {
+                                case 1:
+                                    {
+
+                                        var xy = parseInt(prompt('How Many Purchase Party You Want To Store?'));
+                                        for (var i = 0; i < xy; i++) {
+                                            do {
+                                                var pur_name = prompt('enter name::');
+                                            }
+                                            while (pur_name.length < 3);
+                                            var pur_num = parseInt(prompt('enter number::'));
+                                            for (var j = 0; j < i; j++) {
+                                                while (pur_num == temp[j]) {
+                                                    pur_num = parseInt(prompt("This number is already exists. \n Enter number::"));
+                                                    j = 0;
+                                                }
+                                            }
+                                            var op_blance = parseInt(prompt('Enter opening blance::'));
+                                            var temp = [pur_name, pur_num, op_blance]
+                                            profile.push(temp);
+                                        }
+
+                                        break;
+                                    }
+                                case 2:
+                                    {
+
+
+                                        var s = 0;
+                                        var a = parseInt(prompt('How Many Purchase Product You Want To Store?'));
+                                        for (k = 0; k < a; k++) {
+                                            s = s + 1;
+
+                                            var y;
+                                            do {
+                                                var pro_name = prompt('enter name::');
+                                            }
+                                            while (pro_name.length < 3)
+
+                                            var pur_price = parseInt(prompt('Enter Purchase Price ::'));
+
+
+                                            var sel_price = parseInt(prompt('Enter Sale Price ::'));
+
+
+                                            var op_stock = parseInt(prompt('Enter Opening Stock ::'));
+
+                                            var temp = [s, pro_name, pur_price, sel_price, op_stock]
+                                            product.push(temp);
+                                        }
+                                        break;
+
+                                    }
+                                case 3:
+                                    {
+                                        var xyz = parseInt(prompt('Which Product You Want To order'));
+                                        for (var i = 0; i < product.length; i++) {
+                                            if (xyz == product[i][0]) {
+                                                alert('Product Name =>' + product[i][1] + '\n' + 'Product Price =>' + product[i][2] + '\n' + 'Stock =>' + product[i][4]);
+                                                var de = parseInt(prompt('Enter Quantity =>'));
+                                                var order = product[i][2] * de;
+                                                product[i][4] = product[i][4] + de;
+                                                alert('Your Order is Suceccfully \n Purchase Order Price ==> ' + order + '\n After Order Stock ==> ' + product[i][4]);
+
+                                            }
+                                        }
+                                    }
+                                default:
+
+                            }
+                        } while (xx != 4);
+                        break;
+                    }
+                case 2:
+                    {
+                        do {
+                            var xx = parseInt(prompt('Enter Your Choice...\n 1. Sale Party\n 2. Sale Product \n 3.Exit'));
+                            switch (xx) {
+                                case 1:
+                                    {
+                                        var xy = parseInt(prompt('How Many Purchase Party You Want To Store?'));
+                                        for (var i = 0; i < xy; i++) {
+                                            do {
+                                                var sel_name = prompt('enter name::');
+                                            }
+                                            while (sel_name.length < 3);
+
+                                            var num = parseInt(prompt('enter number::'));
+                                            for (var j = 0; j < i; j++) {
+                                                while (num == num) {
+                                                    num = parseInt(prompt("This number is already exists. \n Enter number::"));
+                                                    j = 0;
+                                                }
+                                            }
+
+                                            var d = parseInt(prompt('Enter opening blance::'));
+                                            var temp = [sel_name, num, d]
+                                            profile2.push(temp);
+                                        }
+                                        break;
+                                    }
+                                case 2:
+                                    {
+                                        var xyz = parseInt(prompt('Which Product You Want To Sale'));
+                                        for (i = 0; i < product.length; i++)
+                                            if (xyz == product[i][0]) {
+                                                alert('Product Name => ' + product[i][1] + '\n' + 'Product Sale Price => ' + product[i][3] + '\n' + 'Stock => ' + product[i][4]);
+                                                var de = parseInt(prompt('Enter Quantity =>'));
+                                                if (product[i][4] >= de) {
+                                                    var sale = product[i][3] * de;
+                                                    product[i][4] = product[i][4] - de;
+                                                    alert('Your Sale Order is Suceccfully \n Sale Order Price ==> ' + sale + '\n After Sale Stock =>' + product[i][4]);
+                                                }
+                                                else {
+                                                    alert('sorry we have not this quntity');
+                                                }
+                                            }
+                                        break;
+                                    }
+                                default:
+
+                            }
+                        } while (xx != 3);
+                        break;
+                    }
+                case 3:
+                    {
+                        var xyz = parseInt(prompt('Which Product Stock You Want'));
+                        for (i = 0; i < product.length; i++) {
+                            if (xyz == product[i][0]) {
+                                alert('Product Name ==>' + product[i][1] + '\n Stock ==>' + product[i][4]);
+                                break;
+                            }
+                        }
+                        break;
+                    }
+                default:
+
+            }
+        } while (x != 4);
+
+    </script>
+</body>
+
+</html>

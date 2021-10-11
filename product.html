@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+                var id = [];
+                var fullname = [];
+                var number = [];
+                var price = [];
+                var quantity = [];
+                var subtotal = [];
+                var gst = [];
+                var grandtotal = [];
+                var status = [];
+                var s=1;
+
+        do {
+            var x = parseInt(prompt('What you Want ? \n 1 .Insert \n 2 .View \n 3 .Search \n 4 .Update \n 5 .Exit'));
+            if (x == 1) {
+
+                var a = parseInt(prompt('How Many Profile You Want To Store?'));
+                for (k = 0; k < a; k++) {
+                    id.push(s++);
+
+                    var y;
+                    do {
+                        var y = prompt('enter name::');
+                    }
+                    while (y.length < 3);
+                    fullname.push(y);
+
+                    var num = parseInt(prompt('enter number::'));
+                    for (var j = 0; j < k; j++) {
+                        while (num == number[j]) {
+                            num = parseInt(prompt("This number is already exists. \n Enter number::"));
+                            j = 0;
+                        }
+                    }
+                    number.push(num);
+
+
+                    var d = parseInt(prompt('Enter Price ::'));
+                    price.push(d);
+
+
+                    var e = parseInt(prompt('Enter Quantity ::'));
+                    quantity.push(e);
+
+
+                    var tt = d * e;
+                    subtotal.push(tt);
+
+
+                    var g = parseInt(prompt('Enter GST ::'));
+                    gst.push(g);
+
+                    var yy = tt + ((tt * g)/100);
+                    grandtotal.push(yy);
+                   
+                }
+
+            }
+            else if (x == 2) {
+                alert('------View operation------\n');
+                for (var i = 0; i < fullname.length; i++) {
+                    alert('ID ==> ' + id[i] + '\n' + 'NAME ==> ' + fullname[i] + '\n' + 'NUMBER ==> ' + number[i] + '\n' + 'PRICE ==> ' + price[i] + '\n' + 'QUANTITY ==> ' + quantity[i] + '\n' + 'SUBTOTAL ==> ' + subtotal[i] + '\n' + 'GST ==> ' + gst[i] + '\n' + 'GRAND TOTAL ==> ' + grandtotal[i] + '\n \n');
+                }
+            }
+            else if (x == 3) {
+                var nu = parseInt(prompt('YOu r in search operation.\n which option through you want to search.\n 1.Id \n 2.Name '));
+               alert('------Search operation------\n');
+                if (nu == 1) {
+                    var d = parseInt(prompt('Please Enter ID For Search:'));
+                    for (var i = 0; i < fullname.length; i++) {
+                        if (d == id[i]) {
+                            alert('ID ==> ' + id[i] + '\n' + 'NAME ==> ' + fullname[i] + '\n' + 'NUMBER ==> ' + number[i] + '\n' + 'PRICE ==> ' + price[i] + '\n' + 'QUANTITY ==> ' + quantity[i] + '\n' + 'SUBTOTAL ==> ' + subtotal[i] + '\n' + 'GST ==> ' + gst[i] + '\n' + 'GRAND TOTAL ==> ' + grandtotal[i] + '\n \n');
+                        }
+                    }
+                }
+                else if (nu == 2) {
+                var d = prompt('Please Enter Name For Search:');
+                for (var i = 0; i < fullname.length; i++) {
+                        if (d == fullname[i]) {
+                            alert('ID ==> ' + id[i] + '\n' + 'NAME ==> ' + fullname[i] + '\n' + 'NUMBER ==> ' + number[i] + '\n' + 'PRICE ==> ' + price[i] + '\n' + 'QUANTITY ==> ' + quantity[i] + '\n' + 'SUBTOTAL ==> ' + subtotal[i] + '\n' + 'GST ==> ' + gst[i] + '\n' + 'GRAND TOTAL ==> ' + grandtotal[i] + '\n \n');
+                        }
+                    }
+                }
+            }
+            else if(x == 4){
+                var up = confirm('Do you want to go in update operation?');
+                if(up){
+                    alert('------Update operation------\n');
+                    var nu =parseInt(prompt('Enter your ID for search profile ==> '));
+                    for (var i = 0; i < fullname.length; i++) {
+                        if (nu == id[i]) {
+                            alert('ID ==>' + id[i] + '\n' + 'NAME ==> ' + fullname[i] + '\n' + 'NUMBER ==> ' + number[i] + '\n' + 'PRICE ==> ' + price[i] + '\n' + 'QUANTITY ==> ' + quantity[i] + '\n' + 'SUBTOTAL ==> ' + subtotal[i] + '\n' + 'GST ==> ' + gst[i] + '\n' + 'GRAND TOTAL ==> ' + grandtotal[i] + '\n \n');
+                            var updt = parseInt(prompt('Now Which record you want to update?\n1.Name\n2.Number\n3.Price\n4.Qauntity\n5.Gst\n6.Exit'));
+                            if(updt == 1){
+                                var yy;
+                                do {
+                                    var yy = prompt('enter name::');
+                                }
+                                while (yy.length < 3);
+                                fullname[i] = yy;
+                            }
+                            else if(updt==2){
+                                var num = parseInt(prompt('enter number::'));
+                                for (var j = 0; j < i; j++) {
+                                    while (num == number[j]) {
+                                        num = parseInt(prompt("This number is already exists. \n Enter number::"));
+                                        j = 0;
+                                    }
+                                }
+                                number[i] = num;
+                            }
+                            else if(updt==3){
+                                var ddd = parseInt(prompt('Enter Price ::'));
+                                price = ddd;
+                            }
+                            else if(updt==4){
+                                var eee = parseInt(prompt('Enter Quantity ::'));
+                                quantity = eee; 
+                            }
+                            else if(updt==5){
+                                var ggg = parseInt(prompt('Enter GST ::'));
+                                gst = ggg; 
+                            }
+                            var ttt = ddd * eee;
+                            subtotal = ttt;
+
+                            var yyy = ttt + ((ttt * ggg)/100);
+                            grandtotal = yyy;
+                            break;
+                        }
+                    }
+                }
+
+            }
+
+            } while (x != 5);
+    </script>
+</body>
+
+</html>

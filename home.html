@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+        var fullname=[];
+        var number=[];
+        var email=[];
+        var city=[];
+        var  bod=[];
+
+        var a = parseInt(prompt('How Many Name You Want To Store?'));
+        for(k=0;k<a;k++)
+        {
+            var b = prompt('enter name::');
+            fullname.push(b);
+            var c = prompt('enter number::');
+            number.push(c);
+            var d =prompt('enter email::');
+            email.push(d);
+            var e =prompt('enter city::');
+            city.push(e);
+            var f =prompt('enter Birth of Date::');
+            bod.push(f);
+
+        }
+
+        var g = prompt('which name search?');
+        for(k=0;k<a;k++)
+        {       
+            if(g ==fullname[k]){
+                document.write(fullname[k]+'\t'+number[k]+'\t'+email[k]+'\t'+city[k]+'\t'+bod[k]+'<br/>');
+            }
+               
+        }
+
+        var hh = prompt('which record update?');
+        for(k=0;k<a;k++)
+        {       
+            if(hh ==fullname[k]){
+                var j = prompt('enter number::');
+                number[k]=j;
+                var l =prompt('enter email::');
+                email[k]=l;
+                var s =prompt('enter city::');
+                city[k]=s;
+                var o =prompt('enter Birth of Date::');
+                bod[k]=o;
+            }
+        }
+
+        for(k=0;k<a;k++)
+        {       
+            
+          document.write(fullname[k]+'\t'+number[k]+'\t'+email[k]+'\t'+city[k]+'\t'+bod[k]+'<br/>');
+               
+        }
+</script>
+</body>
+</html>

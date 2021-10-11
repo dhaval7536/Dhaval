@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var a = [];
+        var b = [];
+        var c = [];
+
+        var d = parseInt(prompt('How Many Area You Want To Store?'));
+        for ( var i = 0; i < d; i++) {
+            var e = prompt('Enter Area ==>');
+            a.push(e);
+
+            var f = parseInt(prompt('For This Area how many Multiplex you want to store?'));
+            var g = [];
+            var y = [];
+            for (var j = 0; j < f; j++) {
+                var h = prompt('Enter Multiplex ==>');
+                g.push(h);
+
+                var k = parseInt(prompt('For This Multiplex how many Movie you want to store?'));
+                var l = [];
+                for (var n = 0; n < k; n++) {
+                    var m = prompt('Enter Movie Name ==>');
+                    l.push(m);
+                }
+                y.push(l);
+
+            }
+            b.push(g);
+            c.push(y);
+        }
+
+        document.write('------View operation------<br/>');
+        for (var ke = 0; ke < a.length; ke++) {
+            document.write('Area ==>' + a[ke] + '<br/>');
+            for (var le = 0; le < b[ke].length; le++) {
+                document.write('Multiplex ==>'+ b[ke]+'<br/>');
+                for(fe=0;fe<c[le][fe].length;fe++){
+                    document.write('Movie ==>'+ c[le][fe]+'<br/>');
+                    break;
+                }
+            }
+            document.write('<br/>');
+        }
+    </script>
+</body>
+
+</html>
